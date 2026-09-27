@@ -26,6 +26,7 @@
 - **Intended use:** The business file provides restaurant characteristics,
   location, rating, review count, and open/closed status. `business_id` allows
   it to be joined with Yelp reviews.
+  
 #### Yelp Review Data
 
 - **Checkpoint sample:** 100,000 rows × 9 columns
@@ -45,8 +46,6 @@
 - **Intended use:** We will use review ratings, text, and dates to construct
   features such as average ratings, changes in ratings, review volume, and
   review sentiment.
-
-The loaded Yelp review sample contains 100,000 observations and 9 columns.
 
 ### 2. Google Local Reviews Dataset (UCSD)
 [Google Local Reviews Dataset: UCSD](https://cseweb.ucsd.edu/~jmcauley/datasets.html?utm_source=chatgpt.com)
@@ -75,9 +74,6 @@ metadata and a 100,000-review sample.
 - **Intended use:** We filtered the business metadata to businesses whose
   categories contain the word `restaurant`. This produced a subset of 28,809
   Illinois restaurants that can later be compared with Chicago government data.
-
-The full Illinois metadata contains 179,205 businesses, of which 28,809 met
-our restaurant-category filter.
 
 #### Google Local Illinois Reviews
 
@@ -130,10 +126,6 @@ API and loaded it into pandas.
   information may help us determine whether a business continued operating or
   closed.
 
-The loaded license sample contains 50,000 rows and 37 columns, including
-business names, license information, neighborhood information, dates, and
-coordinates.
-
 [Chicago Food Inspections](https://data.cityofchicago.org/Health-Human-Services/Food-Inspections/4ijn-s7e5/about_data)
 
 We obtained a 50,000-row sample directly from the City of Chicago Data Portal
@@ -163,10 +155,6 @@ API and loaded it into pandas.
   and potentially license number after matching to the business-license data.
   Repeated inspections may also serve as evidence that a restaurant remained
   in operation at a later date.
-
-The inspection dataframe contains 50,000 rows and 17 columns, including
-restaurant name, inspection date, inspection result, violations, license
-number, and coordinates.
 
 [American Community Survey (ACS)](https://www.census.gov/programs-surveys/acs/data/data-via-api.html?utm_source=chatgpt.com)
 
