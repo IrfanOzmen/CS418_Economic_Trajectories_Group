@@ -12,9 +12,9 @@ Group members: Irfan, Briana, Masa, Harsh
 **Each row represents one business**
 
 **Columns we care about and their types:**
-*business_id - object
-*name - object
-address  - object
+* business_id - object
+* name - object
+* address  - object
 city - object
 state - object
 postal_code - object
