@@ -171,6 +171,7 @@ Chicago Business Food Inspection Info
 * Longitude - float64  
 * Location - object  
 
+**Time**: February 16, 2004 - July 16, 2028
 
 [American Community Survey (ACS)](https://www.census.gov/programs-surveys/acs/data/data-via-api.html)
 
