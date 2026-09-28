@@ -96,7 +96,7 @@ The Google Local dataset provides business information and customer reviews for 
 
 ### Secondary datasets:
 
-### 3. Chicago Food Inspections [link](https://data.cityofchicago.org/resource/4ijn-s7e5.csv?$limit=50000)
+### 3. Chicago Food Inspections [link][(https://data.cityofchicago.org/resource/4ijn-s7e5.csv?$limit=50000)](https://data.cityofchicago.org/Health-Human-Services/Food-Inspections/4ijn-s7e5/about_data)
 
 Chicago Business Food Inspection Info  
 **Shape:** (50000, 17)
