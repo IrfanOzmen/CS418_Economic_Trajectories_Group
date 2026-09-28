@@ -48,50 +48,46 @@ Group members: Irfan, Briana, Masa, Harsh
   features such as average ratings, changes in ratings, review volume, and
   review sentiment.
 
-### 2. Google Local Reviews Dataset (UCSD)
-[Google Local Reviews Dataset: UCSD](https://cseweb.ucsd.edu/~jmcauley/datasets.html?utm_source=chatgpt.com)
+### 2. Google Local Reviews Dataset
+[Google Local Reviews Dataset - UCSD](https://cseweb.ucsd.edu/~jmcauley/datasets.html)
 
-We downloaded the Illinois business metadata and review files. Because the
-Illinois review dataset is very large, we loaded the complete Illinois business
-metadata and a 100,000-review sample.
+### Google Local Business Metadata
 
-#### Google Local Illinois Business Metadata
+**Shape:** `(179205, 15)`
+Each row represents one business in Illinois
 
-- **Shape:** 179,205 rows × 15 columns
-- **Restaurant subset:** 28,809 rows × 15 columns
-- **One row represents:** One local business in Illinois.
-- **Important columns:**
-  - `gmap_id` — object/string — unique Google Maps business identifier
-  - `name` — object/string — business name
-  - `address` — object/string — business address
-  - `latitude` — float
-  - `longitude` — float
-  - `category` — object/list — categories assigned to the business
-  - `avg_rating` — float — average Google rating
-  - `num_of_reviews` — integer — number of Google reviews
-  - `price` — object/string — price level when available
-  - `state` — object/string — operating status or hours/status information
-- **Geographic coverage:** Illinois
-- **Intended use:** We filtered the business metadata to businesses whose
-  categories contain the word `restaurant`. This produced a subset of 28,809
-  Illinois restaurants that can later be compared with Chicago government data.
+**Columns and types:**
+- `name` - object
+- `address` - object
+- `gmap_id` - object
+- `description` - object
+- `latitude` - float64
+- `longitude` - float64
+- `category` - object
+- `avg_rating` - float64
+- `num_of_reviews` - int64
+- `price` - object
+- `state` - object
 
-#### Google Local Illinois Reviews
+**Restaurant subset:** `(28809, 15)`
 
-- **Checkpoint sample:** 100,000 rows × 8 columns
-- **One row represents:** One Google review of one Illinois local business.
-- **Important columns:**
-  - `gmap_id` — object/string — joins a review to Google business metadata
-  - `rating` — integer — rating given by the reviewer
-  - `text` — object/string — review text
-  - `time` — integer — review timestamp stored in milliseconds
-  - `resp` — object — business response when available
-  - `pics` — object — attached picture information when available
-- **Time coverage of our sample:** January 29, 2008 to September 8, 2021.
-- **Geographic coverage:** Illinois
-- **Intended use:** This dataset will provide the main review-level predictors
-  for the Illinois portion of our analysis. `gmap_id` can be used to link each
-  review to the Google business metadata.
+The restaurant subset contains businesses with a category containing the word `restaurant`
+
+### Google Local Reviews
+**Shape:** `(100000, 8)` - loaded as a working sample
+
+Each row represents one review of a business
+
+**Important columns and types:**
+- `rating` - int64
+- `text` - object
+- `pics` - object
+- `resp` - object
+- `gmap_id` - object
+
+**Date range in our sample:** January 29, 2008 - September 8, 2021
+
+The Google Local dataset provides business information and customer reviews for Illinois businesses. The restaurant subset is used for this project, and the two files are linked using `gmap_id`
 
 ### Secondary datasets:
 [Chicago Business Licenses](https://data.cityofchicago.org/Community-Economic-Development/Business-Licenses/r5kz-chrr/about_data)
