@@ -9,7 +9,8 @@ Group members: Irfan, Briana, Masa, Harsh
 #### Yelp Business Data
 
 **Shape**: (150346, 14)
-**Each row represents one business**
+
+Each row represents one business
 
 **Columns we care about and their types:**
 * business_id - object
@@ -28,7 +29,7 @@ Group members: Irfan, Briana, Masa, Harsh
 * hours - object
 * dtype: object
 
-  
+
 #### Yelp Review Data
 **Shape**: (100000, 9)
 **Each row is one review written for one business**
@@ -53,7 +54,9 @@ Group members: Irfan, Briana, Masa, Harsh
 #### Google Local Business Metadata
 
 **Shape**: (179205, 15)
+
 Each row represents one business in Illinois
+
 **Columns and types:**
 * name                 object
 * address              object
@@ -74,7 +77,7 @@ Each row represents one business in Illinois
 The restaurant subset contains businesses with a category containing the word `restaurant`
 
 #### Google Local Reviews
-**Shape:** `(100000, 8)` - loaded as a working sample
+**Shape:** (100000, 8)
 
 Each row represents one review of a business
 
@@ -85,7 +88,7 @@ Each row represents one review of a business
 * resp - object
 * gmap_id - object
 
-**Date range in our sample:** January 29, 2008 - September 8, 2021
+**Time:** January 29, 2008 - September 8, 2021
 
 The Google Local dataset provides business information and customer reviews for Illinois businesses. The restaurant subset is used for this project, and the two files are linked using `gmap_id`
 
