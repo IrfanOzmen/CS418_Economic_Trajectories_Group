@@ -8,12 +8,12 @@ Group members: Irfan, Briana, Masa, Harsh
 [Yelp Open Dataset](https://business.yelp.com/data/resources/open-dataset/?utm_source)
 #### Yelp Business Data
 
-Shape: (150346, 14)
-Each row represents one business
+**Shape: (150346, 14)**
+**Each row represents one business**
 
-Columns we care about and their types:
-business_id - object
-name - object
+**Columns we care about and their types:**
+*business_id - object
+*name - object
 address  - object
 city - object
 state - object
@@ -30,24 +30,22 @@ dtype: object
 
   
 #### Yelp Review Data
+**Shape:** (100000, 9)
+**Each row is one review written for one business**
+**Time: March 1, 2005 - October 4, 2018**
 
-- **Checkpoint sample:** 100,000 rows × 9 columns
-- **One row represents:** One Yelp review written for one business.
-- **Important columns:**
-  - `review_id` — object/string — unique review identifier
-  - `user_id` — object/string — reviewer identifier
-  - `business_id` — object/string — identifies the reviewed business
-  - `stars` — integer — rating given by the reviewer
-  - `text` — object/string — written review
-  - `date` — datetime — date and time of the review
-  - `useful` — integer — useful-vote count
-  - `funny` — integer — funny-vote count
-  - `cool` — integer — cool-vote count
-- **Time coverage of our 100,000-review sample:** March 1, 2005 to October 4,
-  2018.
-- **Intended use:** We will use review ratings, text, and dates to construct
-  features such as average ratings, changes in ratings, review volume, and
-  review sentiment.
+**Columns we care about and their types:**
+review_id              object
+user_id                object
+business_id            object
+stars                   int64
+useful                  int64
+funny                   int64
+cool                    int64
+text                   object
+date           datetime64[ns]
+dtype: object
+
 
 ### 2. Google Local Reviews Dataset
 [Google Local Reviews Dataset - UCSD](https://cseweb.ucsd.edu/~jmcauley/datasets.html)
