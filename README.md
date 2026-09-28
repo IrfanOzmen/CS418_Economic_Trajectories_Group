@@ -5,28 +5,29 @@ Group members: Irfan, Briana, Masa, Harsh
 ## Primary datasets:
 
 ### 1. Yelp Open Dataset
-[DOI Yelp Open Dataset](https://business.yelp.com/data/resources/open-dataset/?utm_source=chatgpt.com)
+[Yelp Open Dataset](https://business.yelp.com/data/resources/open-dataset/?utm_source)
 #### Yelp Business Data
 
-- **Shape:** 150,346 rows × 14 columns
-- **One row represents:** One business listed in the Yelp Open Dataset.
-- **Important columns:**
-  - `business_id` — object/string — unique business identifier
-  - `name` — object/string — business name
-  - `address` — object/string — street address
-  - `city` — object/string — city
-  - `state` — object/string — state or region
-  - `latitude` — float — business latitude
-  - `longitude` — float — business longitude
-  - `stars` — float — average Yelp rating
-  - `review_count` — integer — number of reviews
-  - `is_open` — integer — indicator for whether the business is listed as open
-  - `categories` — object/string — business categories
-- **Geographic coverage:** Multiple U.S. and Canadian regions are represented
-  in the loaded business data.
-- **Intended use:** The business file provides restaurant characteristics,
-  location, rating, review count, and open/closed status. `business_id` allows
-  it to be joined with Yelp reviews.
+Shape: (150346, 14)
+Each row represents one business
+
+Columns we care about and their types:
+business_id - object
+name - object
+address  - object
+city - object
+state - object
+postal_code - object
+latitude - float64
+longitude - float64
+stars - float64
+review_count - int64
+is_open - int64
+attributes - object
+categories - object
+hours - object
+dtype: object
+
   
 #### Yelp Review Data
 
