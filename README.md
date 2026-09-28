@@ -95,68 +95,80 @@ Each row represents one review of a business
 The Google Local dataset provides business information and customer reviews for Illinois businesses. The restaurant subset is used for this project, and the two files are linked using gmap_id
 
 ### Secondary datasets:
-[Chicago Business Licenses](https://data.cityofchicago.org/Community-Economic-Development/Business-Licenses/r5kz-chrr/about_data)
 
-We obtained a 50,000-row sample directly from the City of Chicago Data Portal
-API and loaded it into pandas.
+### 3. Chicago Food Inspections [link](https://data.cityofchicago.org/resource/4ijn-s7e5.csv?$limit=50000)
 
-- **Checkpoint sample:** 50,000 rows × 37 columns
-- **One row represents:** One business-license record.
-- **Important columns:**
-  - `license_id` — integer — license record identifier
-  - `license_number` — integer — business license number
-  - `legal_name` — object/string — legal business name
-  - `doing_business_as_name` — object/string — public-facing business name
-  - `address` — object/string — business address
-  - `license_description` — object/string — type of business license
-  - `business_activity` — object/string — business activity
-  - `application_type` — object/string — issue or renewal information
-  - `license_start_date` — object/date
-  - `expiration_date` — object/date
-  - `license_status` — object/string
-  - `license_status_change_date` — object/date
-  - `latitude` — float
-  - `longitude` — float
-- **License-start-date coverage in our sample:** February 16, 2004 to
-  July 16, 2028.
-- **Geographic coverage:** Primarily Chicago business records. The `city`
-  field in our sample also contains some records with other city/location
-  values, so we may restrict the data to Chicago before analysis.
-- **How we expect to use/join it:** We plan to match Google Local restaurant
-  records with business-license records using business name, address, and
-  geographic coordinates. License status, renewal, expiration, and status-change
-  information may help us determine whether a business continued operating or
-  closed.
+Chicago Business Food Inspection Info  
+**Shape:** (50000, 17)
 
-[Chicago Food Inspections](https://data.cityofchicago.org/Health-Human-Services/Food-Inspections/4ijn-s7e5/about_data)
+*Each row represents one business in Chicago.*
 
-We obtained a 50,000-row sample directly from the City of Chicago Data Portal
-API and loaded it into pandas.
+Columns and types:  
+Inspection_Id - int64  
+dba _name - object  
+Aka_name - object  
+License_ - float64  
+Facility_type - object  
+risk- object  
+address- object  
+city - object  
+state - object  
+Zip - float64  
+inspection_date - object  
+Inspection_type - object  
+results - object  
+Violations - object  
+Latitude - float64  
+Longitude - float64  
+Location - object  
 
-- **Checkpoint sample:** 50,000 rows × 17 columns
-- **One row represents:** One inspection of a food establishment.
-- **Important columns:**
-  - `inspection_id` — integer — unique inspection identifier
-  - `dba_name` — object/string — establishment name
-  - `license_` — float — Chicago license number
-  - `facility_type` — object/string — type of establishment
-  - `address` — object/string — establishment address
-  - `inspection_date` — object/date
-  - `inspection_type` — object/string
-  - `results` — object/string — result such as Pass or Fail
-  - `violations` — object/string — violations reported during inspection
-  - `latitude` — float
-  - `longitude` — float
-- **Time coverage of our 50,000-row sample:** January 9, 2024 to
-  September 25, 2026.
-- **Geographic coverage:** Primarily Chicago. The sample also contains a small
-  number of other values in the `city` field, which we may clean or filter
-  before the final analysis.
-- **How we expect to use/join it:** We plan to compare these inspection records
-  with Google Local restaurants using establishment name, address, coordinates,
-  and potentially license number after matching to the business-license data.
-  Repeated inspections may also serve as evidence that a restaurant remained
-  in operation at a later date.
+*Each row represents one License of a Chicago Business*  
+**Shape:** (50000, 37)  
+[link](https://data.cityofchicago.org/resource/r5kz-chrr.csv?$limit=50000)
+
+Important columns and type:  
+Id - object  
+License_id - int64  
+Account_number - int64  
+Site_number - int64  
+Legal_name - object  
+Doing_business_as_name - object  
+Address - object  
+City - object  
+State - object  
+Zip_code - object  
+Ward - float64  
+Precinct - float64  
+Ward_precinct - object  
+Police_district - float64  
+Community_area - float64  
+Community_area_name - object  
+Neighborhood - object  
+License_code - int64  
+License_description - object  
+Business_activity_id - object  
+Business_activity - object  
+License_number - int64  
+Application_type - object  
+Application_created_date - object  
+Application_requirements_complete - object  
+Payment_date - object  
+Conditional_approval - object  
+License_start_date - object  
+Expiration_date - object  
+License_approved_for_issuance - object  
+Date_issued - object  
+License_status - object  
+License_status_change_date - object  
+Ssa - float64  
+Latitude - float64  
+Longitude - float64  
+Location - object  
+
+Date range in our sample: January 11, 2024 - September 25, 2026
+
+The Chicago Food Inspection dataset provides License information and violation reports for Illinois restaurants. The two files are linked using **License_Id**
+
 
 [American Community Survey (ACS)](https://www.census.gov/programs-surveys/acs/data/data-via-api.html?utm_source=chatgpt.com)
 
