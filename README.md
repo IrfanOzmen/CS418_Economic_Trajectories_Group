@@ -51,7 +51,7 @@ Group members: Irfan, Briana, Masa, Harsh
 ### 2. Google Local Reviews Dataset
 [Google Local Reviews Dataset - UCSD](https://cseweb.ucsd.edu/~jmcauley/datasets.html)
 
-### Google Local Business Metadata
+#### Google Local Business Metadata
 
 **Shape:** `(179205, 15)`
 Each row represents one business in Illinois
@@ -73,7 +73,7 @@ Each row represents one business in Illinois
 
 The restaurant subset contains businesses with a category containing the word `restaurant`
 
-### Google Local Reviews
+#### Google Local Reviews
 **Shape:** `(100000, 8)` - loaded as a working sample
 
 Each row represents one review of a business
