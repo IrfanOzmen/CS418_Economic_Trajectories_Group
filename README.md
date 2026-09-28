@@ -8,43 +8,43 @@ Group members: Irfan, Briana, Masa, Harsh
 [Yelp Open Dataset](https://business.yelp.com/data/resources/open-dataset/?utm_source)
 #### Yelp Business Data
 
-**Shape: (150346, 14)**
+**Shape**: (150346, 14)
 **Each row represents one business**
 
 **Columns we care about and their types:**
 * business_id - object
 * name - object
 * address  - object
-city - object
-state - object
-postal_code - object
-latitude - float64
-longitude - float64
-stars - float64
-review_count - int64
-is_open - int64
-attributes - object
-categories - object
-hours - object
-dtype: object
+* city - object
+* state - object
+* postal_code - object
+* latitude - float64
+* longitude - float64
+* stars - float64
+* review_count - int64
+* is_open - int64
+* attributes - object
+* categories - object
+* hours - object
+* dtype: object
 
   
 #### Yelp Review Data
-**Shape:** (100000, 9)
+**Shape**: (100000, 9)
 **Each row is one review written for one business**
 **Time: March 1, 2005 - October 4, 2018**
 
 **Columns we care about and their types:**
-review_id              object
-user_id                object
-business_id            object
-stars                   int64
-useful                  int64
-funny                   int64
-cool                    int64
-text                   object
-date           datetime64[ns]
-dtype: object
+* review_id              object
+* user_id                object
+* business_id            object
+* stars                   int64
+* useful                  int64
+* funny                   int64
+* cool                    int64
+* text                   object
+* date           datetime64[ns]
+* dtype: object
 
 
 ### 2. Google Local Reviews Dataset
@@ -52,23 +52,24 @@ dtype: object
 
 #### Google Local Business Metadata
 
-**Shape:** `(179205, 15)`
+**Shape**: (179205, 15)
 Each row represents one business in Illinois
-
 **Columns and types:**
-- `name` - object
-- `address` - object
-- `gmap_id` - object
-- `description` - object
-- `latitude` - float64
-- `longitude` - float64
-- `category` - object
-- `avg_rating` - float64
-- `num_of_reviews` - int64
-- `price` - object
-- `state` - object
+* name                 object
+* address              object
+* gmap_id              object
+* description          object
+* latitude            float64
+* longitude           float64
+* category             object
+* avg_rating          float64
+* num_of_reviews        int64
+* price                object
+* hours                object
+* MISC                 object
+* state                object
 
-**Restaurant subset:** `(28809, 15)`
+**Restaurant subset**: (28809, 15)
 
 The restaurant subset contains businesses with a category containing the word `restaurant`
 
@@ -78,11 +79,11 @@ The restaurant subset contains businesses with a category containing the word `r
 Each row represents one review of a business
 
 **Important columns and types:**
-- `rating` - int64
-- `text` - object
-- `pics` - object
-- `resp` - object
-- `gmap_id` - object
+* rating - int64
+* text - object
+* pics - object
+* resp - object
+* gmap_id - object
 
 **Date range in our sample:** January 29, 2008 - September 8, 2021
 
