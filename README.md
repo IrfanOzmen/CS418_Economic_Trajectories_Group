@@ -96,7 +96,8 @@ The Google Local dataset provides business information and customer reviews for 
 
 ### Secondary datasets:
 
-### 3. Chicago Food Inspections [link](https://data.cityofchicago.org/Health-Human-Services/Food-Inspections/4ijn-s7e5/about_data)
+### 3. Chicago Food Inspections 
+[Chicago Food Inspections](https://data.cityofchicago.org/Health-Human-Services/Food-Inspections/4ijn-s7e5/data_preview)
 
 Chicago Business Food Inspection Info  
 **Shape:** (50000, 17)
@@ -124,7 +125,6 @@ Location - object
 
 *Each row represents one License of a Chicago Business*  
 **Shape:** (50000, 37)  
-[link](https://data.cityofchicago.org/Community-Economic-Development/Business-Licenses/r5kz-chrr/about_data)
 
 Important columns and type:  
 Id - object  
@@ -170,7 +170,7 @@ Date range in our sample: January 11, 2024 - September 25, 2026
 The Chicago Food Inspection dataset provides License information and violation reports for Illinois restaurants. The two files are linked using **License_Id**
 
 
-[American Community Survey (ACS)](https://www.census.gov/programs-surveys/acs/data/data-via-api.html?utm_source=chatgpt.com)
+[American Community Survey (ACS)](https://www.census.gov/programs-surveys/acs/data/data-via-api.html)
 
 We may use ACS data later to provide neighborhood-level demographic and
 economic controls such as household income, employment, population, and
