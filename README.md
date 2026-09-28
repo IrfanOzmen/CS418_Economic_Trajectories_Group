@@ -32,8 +32,10 @@ Each row represents one business
 
 #### Yelp Review Data
 **Shape**: (100000, 9)
+
 **Each row is one review written for one business**
-**Time: March 1, 2005 - October 4, 2018**
+
+**Time**: March 1, 2005 - October 4, 2018
 
 **Columns we care about and their types:**
 * review_id              object
@@ -74,7 +76,7 @@ Each row represents one business in Illinois
 
 **Restaurant subset**: (28809, 15)
 
-The restaurant subset contains businesses with a category containing the word `restaurant`
+The restaurant subset contains businesses with a category containing the word restaurant
 
 #### Google Local Reviews
 **Shape:** (100000, 8)
@@ -90,7 +92,7 @@ Each row represents one review of a business
 
 **Time:** January 29, 2008 - September 8, 2021
 
-The Google Local dataset provides business information and customer reviews for Illinois businesses. The restaurant subset is used for this project, and the two files are linked using `gmap_id`
+The Google Local dataset provides business information and customer reviews for Illinois businesses. The restaurant subset is used for this project, and the two files are linked using gmap_id
 
 ### Secondary datasets:
 [Chicago Business Licenses](https://data.cityofchicago.org/Community-Economic-Development/Business-Licenses/r5kz-chrr/about_data)
