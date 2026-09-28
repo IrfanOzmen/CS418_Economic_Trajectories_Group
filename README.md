@@ -102,80 +102,79 @@ The Google Local dataset provides business information and customer reviews for 
 Chicago Business Food Inspection Info  
 **Shape:** (50000, 17)
 
-*Each row represents one business in Chicago.*
+**Each row represents one business in Chicago.**
 
-Columns and types:  
-Inspection_Id - int64  
-dba _name - object  
-Aka_name - object  
-License_ - float64  
-Facility_type - object  
-risk- object  
-address- object  
-city - object  
-state - object  
-Zip - float64  
-inspection_date - object  
-Inspection_type - object  
-results - object  
-Violations - object  
-Latitude - float64  
-Longitude - float64  
-Location - object  
+**Important columns and types** 
+* Inspection_Id - int64  
+* dba _name - object  
+* Aka_name - object  
+* License_ - float64  
+* Facility_type - object  
+* risk- object  
+* address- object  
+* city - object  
+* state - object  
+* Zip - float64  
+* inspection_date - object  
+* Inspection_type - object  
+* results - object  
+* Violations - object  
+* Latitude - float64  
+* Longitude - float64  
+* Location - object
 
-*Each row represents one License of a Chicago Business*  
-**Shape:** (50000, 37)  
+ **Time**: January 11, 2024 - September 25, 2026
 
-Important columns and type:  
-Id - object  
-License_id - int64  
-Account_number - int64  
-Site_number - int64  
-Legal_name - object  
-Doing_business_as_name - object  
-Address - object  
-City - object  
-State - object  
-Zip_code - object  
-Ward - float64  
-Precinct - float64  
-Ward_precinct - object  
-Police_district - float64  
-Community_area - float64  
-Community_area_name - object  
-Neighborhood - object  
-License_code - int64  
-License_description - object  
-Business_activity_id - object  
-Business_activity - object  
-License_number - int64  
-Application_type - object  
-Application_created_date - object  
-Application_requirements_complete - object  
-Payment_date - object  
-Conditional_approval - object  
-License_start_date - object  
-Expiration_date - object  
-License_approved_for_issuance - object  
-Date_issued - object  
-License_status - object  
-License_status_change_date - object  
-Ssa - float64  
-Latitude - float64  
-Longitude - float64  
-Location - object  
+### 4. Chicago Business Licenses
+[Chicago Business Licenses](https://data.cityofchicago.org/Community-Economic-Development/Business-Licenses/r5kz-chrr/about_data)
 
-Date range in our sample: January 11, 2024 - September 25, 2026
+**Shape:** (50000, 37)
 
-The Chicago Food Inspection dataset provides License information and violation reports for Illinois restaurants. The two files are linked using **License_Id**
+**Each row represents one business-license on record**
+
+**Important columns and their types**
+* Id - object  
+* License_id - int64  
+* Account_number - int64  
+* Site_number - int64  
+* Legal_name - object  
+* Doing_business_as_name - object  
+* Address - object  
+* City - object  
+* State - object  
+* Zip_code - object  
+* Ward - float64  
+* Precinct - float64  
+* Ward_precinct - object  
+* Police_district - float64  
+* Community_area - float64  
+* Community_area_name - object  
+* Neighborhood - object  
+* License_code - int64  
+* License_description - object  
+* Business_activity_id - object  
+* Business_activity - object  
+* License_number - int64  
+* Application_type - object  
+* Application_created_date - object  
+* Application_requirements_complete - object  
+* Payment_date - object  
+* Conditional_approval - object  
+* License_start_date - object  
+* Expiration_date - object  
+* License_approved_for_issuance - object  
+* Date_issued - object  
+* License_status - object  
+* License_status_change_date - object  
+* Ssa - float64  
+* Latitude - float64  
+* Longitude - float64  
+* Location - object  
 
 
 [American Community Survey (ACS)](https://www.census.gov/programs-surveys/acs/data/data-via-api.html)
 
-We may use ACS data later to provide neighborhood-level demographic and
-economic controls such as household income, employment, population, and
-poverty. Restaurant coordinates could be connected to Census geographic areas
-and compared with these neighborhood characteristics.
+We could use ACS data later to provide neighborhood demographic information.
 
 
 ## Unit of Analysis
