@@ -1,7 +1,30 @@
 
 
-##1.
-##2.
+## Section 1 and Section 2:: Profile each primary dataset and Make a note of anomalies:.
+Section 1 goes through each primary dataset and reports the most important information about them and things that stand out. For each dataset we reported its shape, its types, the number of missing value and summary statistics for it. For all of them we wrote a short paragraph of what stood out to us. Section 2 focuses discovering missing values, duplicated, inconsistent formatting, wrong data types, invalid uses and mixes units for all our primary datasets.
+
+1) The Yelp Business dataset is 150346 rows and 14 columns . In this dataset is that some columns have a different datatype from what is expected is_open is stored as a number even though it should be yes or no boolean. The column attribute’ is missing 13744 rows and ‘hours’ is missing 23223 rows, which is more than the rest of the columns. Looking at the latitude and longitude in the summary table we can see that the dataset contains the data for states other than IL too, so it's worth checking if it contains enough data that we can use for IL businesses. Looking at the mean of ‘is_open’ we can see that about 20% of the restaurants are closed. We also noticed that ‘review_count’ is right skewed since its mean(44.8) is greater than its median (15).
+* Missing values will be drop later in our analysis because we can't know if they are restaurants or some other bussinesses. Rows affected 103
+* We checked if there are any duplicate businesses in the dataset and droped them. Rows affected: none
+* Wrong data types: 'is_open' should be stored as boolean instead of integer, convert it. Rows affected: 150346
+
+2) The Yelp Review Database currently has 100000 rows which we limited it to and 9 columns. Each row represents one review for one business. All the columns have correct datatypes and there are no missing values. Looking at the statistics table we can see that the date range for these reviews goes from 03/01/2005 to 04/10/2018, which is useful to note. Starts have a minimum of 1 and maximum of 5 which seems usual. ‘Useful’, ‘funny’, ‘cool’ reviews are right skewed.
+* No missing values.Rows affected: none
+* We checked if there are any duplicate reviews in the dataset and droped them. Rows affected: none
+* No wrong data types, or inconsistent formatting
+* We checked if there are reviews that can't be matched with business. Row affected: none since everything matches.
+
+3) The Google Local Business Metadata has 179205 rows and 15 columns. There are no inconsistencies or wrong data types, however there is a lot of missing data. ‘Description’ is missing in 142537 rows, price is missing in 141228 rows (almost 80% for both), ‘relative_results” are missing in 12589 rows and some other columns have missing values. Looking at the summary table, we can see that the average rating has a minimum of 1 and maximum of 5 which makes sense, but the median is 4.4 which is a little higher than on Yelp reviews which was
+* The missing values for 'description' and 'price' are left and flagged.
+* We checked if there are any duplicate reviews in the dataset and drop them. Rows affected: total - rows with no duplicated = 179205 - 178204 = 1001
+* No wrong data types, or inconsistent formatting.
+* We inspect other columns such as 'name' and 'state' to check if there is anything that doesn't make sense. Rows affected: none
+
+4) The Google Local Reviews dataset has 100000 rows which we limited it to and 8 columns. There are few columns that have the wrong data type, user_id is stored as float and time is stored as a large integer such as(1.000000e+05). This dataset provides business info and customer reviews. Since there are some missing data such as ‘text’, ‘pics’, ‘resp’, we should assume that this is expected since some businesses just don’t have that available. Looking at summary statistics we can tell that time is written differently than expected, and ratings have a mean of 4.4 which is high.
+* Missing values: Rows affected 29958
+* We checked if there are any duplicate reviews from the same user at the same time in the dataset and drop them. Rows affected: 20204
+* Wrong data types and formats change 'time' to correct format. Rows affected: 100000. For other wrong data types, we left and flagged them
+
 
 ## Section 3: Distributions of Important Features
 This section goes through two important features in the Yelp business dataset which is one of more main primary datasets: restaurant star ratings and restaurant review counts. These features were selected because they describe customer satisfaction and customer engagement, which may be associated with restaurant closure status. Understanding their distributions helps identify typical values, spread, skewness, and potential outliers before examining relationships between features and restaurant closures.
