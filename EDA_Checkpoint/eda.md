@@ -94,4 +94,50 @@ Failed inspections were only associated with only about 1.9 percentage points mo
 This is an association, not evidence that negative reviews cause a direct inspection failiure. Things like restaurant type, location, price, review amount and inspection categories could affect both of these variables. Also linkage error could be very unlikely but possible beacuse Google and Chicago food-inspections lack a common identifier for each establisment, but since geograpic and name variables vere used as thresholds the linkage is error is very unlikely.
 
 
-##6.
+## Relationship Plot 3: Food-inspection results and later permanent closure
+
+This section explores the question: **Are Chicago restaurants that fail a food inspection more likely to be marked permanently closed later, and does review volume change that pattern?**
+
+This plot joins the two earlier analyses. Each restaurant's first qualifying inspection result (Plot 2) is linked by gmap_id to its Google status (Plot 1). Because the inspection happened while the restaurant was operating, the closure status comes later in time. Restaurants are also split at the median Google review count (188 reviews), since Plot 1 showed review volume is strongly related to closure. Only restaurants with a known "Observed operating" or "Permanently closed" status are included, which leaves 3,251 of the 4,838 restaurants from Plot 2.
+
+### Relationship: inspection result, review volume, and permanent closure
+
+The grouped bar chart shows the percentage of restaurants marked permanently closed for each first-inspection result (Pass, Pass w/ Conditions, Fail), split into restaurants at or below and above the median Google review count. Each bar reports its sample size.
+
+### 5. So what?
+
+Restaurants that failed their first inspection were marked permanently closed **16.4%** of the time, compared with **15.7%** of those that passed and **12.2%** of those that passed with conditions. That is a gap of only 0.7 percentage points between pass and fail, and the pass-with-conditions group had the lowest closure rate of the three. Review volume separates restaurants far more clearly. Restaurants at or below the median of 188 Google reviews closed more often than those above it in every inspection group (**25.0%** vs. **8.0%** for failures, 23.8% vs. 7.3% for passes, and 18.8% vs. 5.4% for passes with conditions).
+
+This was somewhat unexpected. A failed inspection suggests operational problems, so a clearly higher closure rate seemed plausible, but the pass-fail difference was much smaller than expected. It is also far smaller than the review-volume gap from Plot 1 (52.0% vs. 7.0%). Together with Plot 2, where failed inspections were associated with only about 1.9 percentage points more negative ratings, this suggests that inspection outcomes are a weak signal of closure compared with review volume.
+
+This is an association only. Google gives a snapshot status with no closure date, so we cannot say how long after the inspection a restaurant closed, and 2020 pandemic closures likely affect every group. A restaurant that was relocated or renamed may also be marked permanently closed. The sample has limits too. Of the 4,838 restaurants from Plot 2, only 3,251 have a known open or permanently closed status, and all of them had at least five Google ratings in the year before inspection. This leans toward more active restaurants, which is why the overall closure rate here is well below the 26.5% in Plot 1.
+
+## 6. What next?
+
+### Plot 1 (rating, review volume, and permanent closure)
+**Next question:** Does review volume still predict closure once restaurant age is held constant?
+Plot 1 showed a gap of 52.0% closed in Q1 vs. 7.0% in Q4, but older restaurants have had more time to collect reviews. The Chicago Business Licenses dataset (already loaded) has license dates that could give each restaurant an age and a rough closure date, though only 50,000 rows were pulled so coverage needs checking. I would also split by cuisine/category and by chain vs. independent, since chains may drive high review counts.
+
+### Plot 2 (negative ratings before inspections)
+**Next question:** Do the written reviews carry a signal that star ratings miss?
+The failed group averaged only about 1.9 percentage points more negative ratings than the passed group (12.5% vs. 10.6%). I would pull review text from the same 365-day window and test for cleanliness and food-safety terms by inspection outcome. I would also split by inspection risk level, and check whether the five-rating minimum filtered the sample toward popular restaurants. A hand-check of a random sample of linked records would validate the matching.
+
+### Plot 3 (inspection results and later closure)
+**Next question:** Does inspection severity or timing explain closure better than a simple pass/fail label?
+Failed restaurants closed only slightly more often than passed ones (16.4% vs. 15.7%), so pass/fail may be too coarse. I would look at the number and type of violations, the facility risk level, and repeat failures. I would also split by inspection year (2018-2019 vs. 2020-2021) to separate pandemic-era closures from earlier ones, and use license dates to estimate how long after an inspection closures happen. A national Yelp is_open check could test whether the review-volume pattern holds on another platform, though Yelp has only one Chicago business in this dataset.
+
+### Research questions, restated
+
+**Current questions:**
+1. How do average rating and review volume relate to whether a Chicago restaurant is permanently closed?
+2. Do Chicago restaurants with worse food-inspection outcomes have a higher share of negative Google ratings beforehand?
+
+**Revised questions:**
+1. Is review volume still associated with permanent closure after accounting for restaurant age, category, and chain status?
+2. Do the content of written reviews, not just star ratings, signal worse inspection outcomes?
+3. Do more detailed inspection measures (violation severity, risk level, repeat failures) help explain permanent closure beyond review volume?
+
+**What changed and why:**
+- **Question 1 now requires control for age.** Review volume was the strongest signal in Plots 1 and 3, but restaurant age is the most likely explanation, and the licenses data can address it.
+- **Question 2 now includes review text.** The star-rating difference was small, so the written reviews are the better next signal.
+- **Question 3 is new and narrower than expected.** Plot 3 showed that a simple pass/fail result barely relates to closure (16.4% vs. 15.7%), so the next step is to test whether finer-grained inspection details carry any signal that pass/fail hides.
