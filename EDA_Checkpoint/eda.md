@@ -2,7 +2,32 @@
 
 ##1.
 ##2.
-##3.
+
+## Section 3: Distributions of Important Features
+This section goes through two important features in the Yelp business dataset which is one of more main primary datasets: restaurant star ratings and restaurant review counts. These features were selected because they describe customer satisfaction and customer engagement, which may be associated with restaurant closure status. Understanding their distributions helps identify typical values, spread, skewness, and potential outliers before examining relationships between features and restaurant closures.
+
+### Distribution 1: Yelp Restaurant Star Ratings
+Feature: stars
+Plot: Distribution of Yelp Restaurant Star Ratings
+
+Why this feature matters:
+
+Restaurant star ratings provide a measure of customer satisfaction. Restaurants with lower ratings may face different challenges from highly rated restaurants, making ratings an important feature to investigate when examining whether customer satisfaction is associated with restaurant closure status. The histogram helps us understand the overall rating distribution and identify common rating ranges before comparing restaurants with different closure statuses.
+
+Distribution shape and findings:
+The analysis includes 52,268 Yelp restaurant businesses. The mean rating is 3.52 stars, the median is 3.50 stars, and the standard deviation is 0.83 stars. These results indicate that ratings are centered around 3.5 stars, with some variation across restaurants. The mean and median are very close, suggesting that the distribution is relatively balanced around its center. 
+
+### Distribution 2: Restaurant Review Counts
+Feature: review_count
+Plot: Distribution of Yelp Restaurant Review Counts
+
+Why this feature matters:
+
+The number of reviews a restaurant receives measures customer engagement and provides a indicator of its visibility or popularity on Yelp. This feature is relevant because restaurants with different levels of customer engagement may also differ in their observed closure status. Review counts complement star ratings: ratings describe how customers evaluate a restaurant, while review counts describe how much feedback it has received.
+
+Distribution shape and findings:
+The histogram displays the distribution of review counts among Yelp restaurants.  Comparing the mean and median helps assess this pattern. If the mean is substantially greater than the median, this suggests that restaurants with high review counts pull the average upward.
+
 ## Section 4. Relationships:
 ### Relationship Plot 1: Review characteristics and restaurant closure status
 
