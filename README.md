@@ -202,3 +202,52 @@ Potential variables include:
 - Frequency of complaints related to service, food quality, cleanliness, price, wait times, or staffing
 - Sudden increases in negative reviews
 - Reviewer activity or experience when available
+
+
+## Exploratory analysis
+
+### Dataset overview
+
+We examined four main datasets. The Yelp Business dataset contains 150,346 businesses. The Yelp review sample contains 100,000 reviews. The Google Local Business Metadata contains 179,205 Illinois businesses, including 28,809 businesses categorized as restaurants, and our initial Google Review profile uses a 100,000-review sample. 
+
+While doing the relationship analyses, we filtered the Google data to Chicago restaurants and joined it with the Chicago Food Inspections dataset from 2018 to 2021.
+
+The Yelp distributions describe restaurant ratings and review activity more generally. The three relationship analyses focused specifically on Chicago restaurants.
+
+### Revised research questions
+
+The exploratory data analysis led to these revised questions:
+1. Is the review volume still associated with permanent closure after accounting for restaurant age, category, and chain status?
+2. Does the content of written reviews, instead of rating alone out of 5, signal worse food-inspection outcomes?
+3. Do more detailed inspection measures, like violation severity, risk level, and repeat failures, help explain permanent closure beyond review volume?
+
+### Anomalies and data quality checks
+
+Yelp Business Dataset
+1. Missing values: There are 103 rows with missing categories. These will be dropped later in our analysis because we can't know if they are restaurants or some other businesses.
+2. Duplicates: There are no duplicate businesses based on business_id.
+3. Wrong data types: is_open is stored as an integer but should be stored as a boolean. This affects 150,346 rows and will be converted later.
+4. Not enough Chicago data: There is only 1 business listed in Chicago, so this dataset does not have enough Chicago businesses for our main analysis.
+Yelp Reviews Dataset
+5. Missing values: No missing values were found.
+6. Duplicates: No duplicate reviews were found based on review_id.
+7. Data types and formatting: No wrong data types or inconsistent formatting were found.
+8. Unmatched reviews: All reviews in the sample can be matched with a business in the Yelp Business dataset.
+Google Metadata Dataset
+9. Missing values: Missing values in description and price are left in the dataset and flagged.
+10. Duplicates: There are 1,001 duplicate gmap_id entries in the metadata dataset.
+11. Data types and formatting: No major wrong data types or inconsistent formatting were found.
+Google Reviews Dataset
+12. Missing values: There are 29,958 reviews with no review text. These are left in the dataset and flagged.
+13. Duplicates: There are 20,204 reviews with the same user_id and time. These will be treated as possible duplicates.
+14. Wrong data types and formats: time was stored as milliseconds and was converted to datetime format for all 100,000 sampled reviews. Other questionable data types are left and flagged for now.
+
+### Significant findings
+
+Yelp restaurant ratings were centered around 3.5 stars, with a mean of 3.52, median of 3.50 and a standard deviation of 0.83. Restaurant review counts were strongly right-skewed, meaning most restaurants had reletively few reviews. While a small number had a very large review total.
+
+Review volume (amount) had the cleanest relationship with permanent closure among Chicago restaurants. Restaurants in the lowest Google review-volume quartile were marked permanently closed 52% of the time, compared with only 7.0% in the highest quartile. Restaurants rated below 3.0 also had higher closure percentage than restaurants rated from 4.5 to 5.0. However, the rating pattern was less reliable after separating restaurants by review volume.
+
+Restaurants that failed a food inspection averaged 12.5% negative ratings during the preceding year, compared with 10.6% among restaurants that passed. However, the distributions overlapped substantially.
+
+Inspection results were much more closely tied to permanent closure than review volume. Restaurants that failed their first inspection were marked permanently closed 16.4% of the time, compared with 15.7% of restaurants that passed. Within each inspection group, restaurants with lower review volume had much higher closure rates than those with higher review volume.
