@@ -2,6 +2,8 @@
 Group members: Irfan, Briana, Masa, Harsh
 ### Research Question: What characteristics of online reviews best predict future changes in a restaurant or local business's sales, popularity, or likelihood of closure?
 
+Revised: What characteristics of restaurants, such as proximity to similar businesses, review volume, ratings, review negativity score, and how long a business stayed open, help predict a restaurant's likelihood of closure?
+
 ## Primary datasets:
 
 ### 1. Yelp Open Dataset
