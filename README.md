@@ -6,7 +6,45 @@ Revised: What characteristics of restaurants, such as proximity to similar busin
 
 ## Primary datasets:
 
-### 1. Yelp Open Dataset
+### 1. Princeton Longitudinal Yelp Reviews Dataset (Chicago)
+
+The [Princeton Longitudinal Reviews Dataset](https://sites.google.com/princeton.edu/longitudinal-review-data) replaces the Yelp Open Dataset for Chicago analysis. The encrypted source archive is `data/longitudinal_reviews_2022-05-25-1444.zip`; it is ignored by Git. The processed Chicago restaurant data is in `data/processed_princeton_chicago/`:
+
+* `businesses.parquet`: one row per unique Chicago restaurant, with its Yelp business ID, name, address, coordinates, categories, rating, closure flag, and a JSON column containing all retained original business fields.
+* `reviews.parquet`: one row per deduplicated review, linked by `business_id`. It includes review text, date, rating, reviewer metrics, and recommendation status.
+* `manifest.json`: row counts, included source crawls, and processing rules.
+
+The conversion reads the latest CHI and UDIS crawls plus EYG directly from the encrypted ZIP. It selects `Chicago, IL` businesses using Yelp's Restaurants category hierarchy. Only reviewer names, reviewer profile URLs, reviewer image URLs, and business image URLs/photos are removed. Business names and Yelp business URLs remain for matching to the Google Local data.
+
+The output has **5,355 restaurants** and **1,331,020 deduplicated reviews**. Of those restaurants, 4,984 have a review in the selected snapshots.
+
+To rebuild the Parquet files, install `pyarrow` and run `python scripts/process_princeton_chicago.py`; enter the ZIP password at the prompt. The script never stores the password. Output files must not already exist. Notebook readers need `pandas` and `pyarrow`. The current workspace has `pyarrow` in `data/.python_deps`; install it in your own environment if that folder is unavailable.
+
+In a notebook:
+
+```python
+from pathlib import Path
+import sys
+import pandas as pd
+
+data_dir = Path("data/processed_princeton_chicago")
+sys.path.insert(0, str(Path("data/.python_deps").resolve()))
+businesses = pd.read_parquet(data_dir / "businesses.parquet")
+reviews = pd.read_parquet(data_dir / "reviews.parquet")
+# Some original dates end with "Updated review"; preserve the raw date
+# and parse its leading month/day/year for time-series analysis.
+reviews["review_date"] = pd.to_datetime(
+    reviews["date"].str.extract(r"^(\d{1,2}/\d{1,2}/\d{4})", expand=False),
+    format="%m/%d/%Y",
+)
+restaurant_reviews = reviews.merge(
+    businesses[["business_id", "name", "city", "state", "category_aliases"]],
+    on="business_id",
+    validate="many_to_one",
+)
+```
+
+### Yelp Open Dataset (legacy; no Chicago coverage)
 [Yelp Open Dataset](https://business.yelp.com/data/resources/open-dataset/?utm_source)
 #### Yelp Business Data
 
