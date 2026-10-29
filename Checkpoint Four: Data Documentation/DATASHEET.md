@@ -1,4 +1,6 @@
 ### Economic Trajectories Codebook:
+Note: We are no longer using prior Yelp Dataset, instead will begin using Princeton Yelp Reviews Dataset (Chicago). As we go forward and begin using we will add columns to codebook.
+
 | Variable | Data type | Units | Meaning | Range / Allowed values | Missing-value coding | Origin | Table |
 |---|---|---|---|---|---|---|---|
 | gmap_id | object | None but this is the unique identifier | This is a unique Google Maps ID identifier of the business. With this we are able to link google reviews specific to the matches | 0x...:0x... Unique after dropping 9 duplicate rows from the Chicago restaurant subset (1,001 duplicate rows in the full Illinois file). | None missing | meta-Illinois.json.gz, columngmap_id review-Illinois.json.gz, columngmap_id | google_metadata & google_reviews |
