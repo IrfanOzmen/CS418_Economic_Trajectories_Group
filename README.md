@@ -291,3 +291,15 @@ Review volume (amount) had the cleanest relationship with permanent closure amon
 Restaurants that failed a food inspection averaged 12.5% negative ratings during the preceding year, compared with 10.6% among restaurants that passed. However, the distributions overlapped substantially.
 
 Inspection results were much more closely tied to permanent closure than review volume. Restaurants that failed their first inspection were marked permanently closed 16.4% of the time, compared with 15.7% of restaurants that passed. Within each inspection group, restaurants with lower review volume had much higher closure rates than those with higher review volume.
+
+
+## Data documentation
+
+The [Checkpoint 4 datasheet](Checkpoint_%234_Data_Documentation/DATASHEET.md) documents dataset composition, access, formats, and reuse.
+
+- **Princeton Longitudinal Reviews:** [Princeton dataset page](https://sites.google.com/princeton.edu/longitudinal-review-data). Access by request. We assume the paper's [CC BY 4.0 license](https://arxiv.org/abs/2202.09005) also covers the data, although the dataset page does not state a separate license.
+- **Google Local Data (2021):** [creators' dataset page](https://jiachengli1995.github.io/google/index.html). The creators request citations but is no stated redistribution permission specified. Therefore unconfirmed but we can still share processing code, schema, and publish results and link users to the source files under Google Maps terms and third-party content.
+- **Chicago Food Inspections:** [City dataset](https://data.cityofchicago.org/d/4ijn-s7e5). The portal lists its license as "See Terms of Use." We can use the City's data terms.[City of Chicago Data Terms of Use](https://www.chicago.gov/city/en/narr/foia/data_disclaimer.html).
+- **Chicago Business Licenses:** [City dataset](https://data.cityofchicago.org/d/r5kz-chrr). Everyone else can reuse a city only dataset subject to these same terms: [City of Chicago Data Terms of Use](https://www.chicago.gov/city/en/narr/foia/data_disclaimer.html).
+
+The biggest limitation we have is that the Google Local dataset provides a status snapshot but it has no closure dates. Also 2,313 of 8,034 Chicago restaurants have no usable status. As a result, we can't tell when a restaurant was closed.
