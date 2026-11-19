@@ -4,6 +4,12 @@ Group members: Irfan, Briana, Masa, Harsh
 
 Revised: What characteristics of restaurants, such as proximity to similar businesses, review volume, ratings, review negativity score, and how long a business stayed open, help predict a restaurant's likelihood of closure?
 
+### Finding 1: 
+
+Analyzing 5,355 businesses from the Princeton Yelp dataset, with 4,984 having a dated review history and 32 labeled as closed, we found that once the age of the first review was controlled for, the relationship between review counts and closure became weaker, with the odds ratio being reduced from 1.516 to 1.261. On the other hand, calculating the odds ratio using the time between the first and last reviews resulted in 1.631 odds ratio. These results imply that the period of a restaurant’s review history is one of the factors responsible for the relationship under study.
+
+<img width="1192" height="602" alt="image" src="https://github.com/user-attachments/assets/fe3e4fb2-a9b2-4ce5-a7ab-c59c88fa0a3c" />
+
 ## Primary datasets:
 
 ### 1. Princeton Longitudinal Yelp Reviews Dataset (Chicago)
