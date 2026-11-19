@@ -4,6 +4,21 @@ Group members: Irfan, Briana, Masa, Harsh
 
 Revised: What characteristics of restaurants, such as proximity to similar businesses, review volume, ratings, review negativity score, and how long a business stayed open, help predict a restaurant's likelihood of closure?
 
+### Finding 1: 
+
+Analyzing 5,355 businesses from the Princeton Yelp dataset, with 4,984 having a dated review history and 32 labeled as closed, we found that once the age of the first review was controlled for, the relationship between review counts and closure became weaker, with the odds ratio being reduced from 1.516 to 1.261. On the other hand, calculating the odds ratio using the time between the first and last reviews resulted in 1.631 odds ratio. These results imply that the period of a restaurant’s review history is one of the factors responsible for the relationship under study.
+
+<img width="1192" height="602" alt="image" src="https://github.com/user-attachments/assets/fe3e4fb2-a9b2-4ce5-a7ab-c59c88fa0a3c" />
+
+### Finding 2: 
+
+Negative ratings & inspection results 
+
+From this we were able to find that restaurants that failed their first inspection had slightly more 1 or 2 star Google ratings in the year before their inspection than restaurants that passed, 12.6% compared to 10.7% which we had found in EDA. The difference was about 1.8 percentage points . Since the interval does not include zero it is pretty small but it is significant. We also checked whether our results changed when using different review periods and minimum numbers of ratings. The gap stayed between 1.7 and 2.3 percentage points, and for high risk restaurants it was 1.9 points. Showing small connection between negative Google ratings and inspection results but the ratings itself isn't enough to tell whether a restaurant will fail. This also does not mean that negative ratings cause inspection failures.
+
+<img width="1226" height="663" alt="finding2" src="https://github.com/user-attachments/assets/4449d29f-70af-4c67-9681-ab895ee2410b" />
+
+
 ## Primary datasets:
 
 ### 1. Princeton Longitudinal Yelp Reviews Dataset (Chicago)
