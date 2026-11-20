@@ -4,6 +4,12 @@ Group members: Irfan, Briana, Masa, Harsh
 
 Revised: What characteristics of restaurants, such as proximity to similar businesses, review volume, ratings, review negativity score, and how long a business stayed open, help predict a restaurant's likelihood of closure?
 
+## Main Findings (Narrative Analysis)
+
+- Finding 1: Google marked 52.0% of restaurants in the lowest review-count quartile as permanently closed, versus 7.0% in the highest.
+- Finding 2: Restaurants that failed averaged 12.5% one- or two-star Google ratings in the year before inspection, versus 10.6% for restaurants that passed.
+- Finding 3: Google marked 16.4% of restaurants that failed their first qualifying inspection as permanently closed, versus 15.7% of those that passed.
+
 ### Finding 1: 
 
 Analyzing 5,355 businesses from the Princeton Yelp dataset, with 4,984 having a dated review history and 32 labeled as closed, we found that once the age of the first review was controlled for, the relationship between review counts and closure became weaker, with the odds ratio being reduced from 1.516 to 1.261. On the other hand, calculating the odds ratio using the time between the first and last reviews resulted in 1.631 odds ratio. These results imply that the period of a restaurant’s review history is one of the factors responsible for the relationship under study.
