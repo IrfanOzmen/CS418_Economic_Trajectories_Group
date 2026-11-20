@@ -12,9 +12,20 @@ Revised: What characteristics of restaurants, such as proximity to similar busin
 
 ### Finding 1: 
 
-Analyzing 5,355 businesses from the Princeton Yelp dataset, with 4,984 having a dated review history and 32 labeled as closed, we found that once the age of the first review was controlled for, the relationship between review counts and closure became weaker, with the odds ratio being reduced from 1.516 to 1.261. On the other hand, calculating the odds ratio using the time between the first and last reviews resulted in 1.631 odds ratio. These results imply that the period of a restaurant’s review history is one of the factors responsible for the relationship under study.
+In the Google dataset which contained 5,429 Chicago restaurants had known closure status. Those restaurants that were in the lowest review count quartile: 52.0% of them were marked permanently closed versus only 7.0% in the highest, a gap of 45.1 percentage points. Restaurants that stay open longer can build up more reviews. On the same 1,164 matched restaurants, the model estimated a 50.7-point gap at 18 versus 518 reviews before adjustment and 57.5 points after adding the time model since the first recorded license. This license date issue data was acquired from the Chicago Business Licenses [https://data.cityofchicago.org/Community-Economic-Development/Business-Licenses/r5kz-chrr/about_data] database. For the restaurant, the gap was 58.6 points. Adding community area gave a 64.7% versus 6.7%, a 57.9-point gap (95% CI 49.7 to 66.2). So, a slightly lower gap than before the community area was added. Using the first Google Review data as the age proxy gave a 62.6- point gap. The exact-name license check gave a 59.4-point gap. These estimates describe closure status as recorded by Google. Differences in actual operating lifetimes could still contribute to the gap because opening and closure dates are unknown.
+
+<img width="1196" height="559" alt="image" src="https://github.com/user-attachments/assets/805fa5de-6303-4122-8262-8a7e86b5b10d" />
+
+Later, in the Princeton Yelp dataset, with 4,984 having a dated review history and 32 labeled as closed, we found that once the age of the first review was controlled for, the relationship between review counts and closure became weaker, with the odds ratio being reduced from 1.516 to 1.261. On the other hand, calculating the odds ratio using the time between the first and last reviews resulted in 1.631 odds ratio. These results imply that the period of a restaurant’s review history is one of the factors responsible for the relationship under study.
 
 <img width="1192" height="602" alt="image" src="https://github.com/user-attachments/assets/fe3e4fb2-a9b2-4ce5-a7ab-c59c88fa0a3c" />
+
+However, later investigation found that all the closed restaurants in the Princeton Yelp data came from a single group. How the data was gathered showed that restaurants that were closed were only gathered from the EYG (Eight Year Gap) group that were 123 restaurants that were specifically picked for examination between years 2012 and 2020. All of the 32 restaurants that were marked closed in the Princeton Yelp data came from this group. This was an issue because, when gathering the other groups (CHI and UDIS), permanently closed restaurants were not included. So we decided to test our findings with the EYG group, which would not have bias towards closed restaurants.
+
+When the EYG group data was taken under investigation, we saw that 91 of the open restaurants had a median review count of 1,247. When we compare this to the median of 398 reviews among those 32 closed restaurants, the story became clearer. Of all the 121 complete restaurants (2 restaurants’ closure status was unknown), adding observed review age reduced the estimated low vs. high reviews gap from 52.4 to 47.9 percentage points, so a very small drop, as we saw in the Google database. When we added our rating, negative-share, and community area controls, the fitted probability of closure between restaurants with 72 reviews and 2245 reviews was found to be  59.3% and 11.1%, a sizable 48.1-point gap. We also used a cluster-bootstrap 95% interval of 24.5 to 70.3. The main adjusted result has the same direction as the Google finding. We also saw that this direction was unaffected by the leave-one-area-out checks.
+
+<img width="1248" height="611" alt="image" src="https://github.com/user-attachments/assets/da26c3be-4130-4fa3-8b17-28f6fdd9a157" />
+
 
 ### Finding 2: 
 
@@ -24,6 +35,21 @@ From this we were able to find that restaurants that failed their first inspecti
 
 <img width="1226" height="663" alt="finding2" src="https://github.com/user-attachments/assets/4449d29f-70af-4c67-9681-ab895ee2410b" />
 
+### Finding 3:
+
+Restaurants that failed their first inspection were marked permanently closed 16.4% of the time, compared with 15.7% of those that passed, making the gap between them too small to treat inspection results as a strong reason for closure and put focus on the Google reviews that show that restaurants with a number of reviews above the median are less likely to be marked permanently closed regardless of the inspection pass/fail results.
+
+In the sample of 3251 restaurants with know open/permanently closed status we were looking at, 16.4% of those who failed the inspection were marked permanently closed and 15.7% passed, creating a gap of 0.7 percentage points. However, in our calculation of the 95% confidence interval, we found that the confidence interval for this gap between restaurants that failed and passed inspections that were permanently closed ranges from -2.7 to 4.1 percentage points. This means that we can't confidently conclude that restaurants that fail or pass the inspection are more likely to be permanently closed, and therefore the inspection results are not clearly associated with whether the retsaurants will be marked permanently closed
+
+<img width="687" height="435" alt="image" src="https://github.com/user-attachments/assets/2d89ac2a-9ed6-48f1-a73b-8c6bfd9f3bb2" />
+
+The graph shows the relationship we expected. Two lines are model's predicted chance of closure based on whether the restaurant failed or passed their first inspection. These lines are very close to each other and the orange line shows that restaurants that fail their first inspection have a slightly higher odds of being marked closed (1.1). As number of google reviews increases, predicted chance of being marked closed decreaseses and both lines follow the downward slope.
+
+In our calculation of the 95% confidence interval, we found that the odds ratio ranges from 0.85 to 1.42. Since the range can be below 1, above 1 or 1, we can't confidently conclude that failing the first inspection increases, decreases or is linked at all to odds of closing the restaurant, meaning we can't conclude that failing an inspection is linked to the closure of the restaurant.
+Pass w/condition check
+Out of 3251 restaurants with known open/permanently closed status, 1447 of them had the result Pass w/Condition. Without considering this group we have our finding that restaurants that failed their first inspection were marked permanently closed 16.4% of the time, compared with 15.7% of those that passed, but we want to check if counting this group as either pass or fail would change our finding and make the gap more significant.
+
+We can see that around 30% of restaurants that failed their first inspection were removed and around 36% of those that passed, which is slightly more. The gap is -5.3 and CI ranges from -8.87 to -1.78, which doesn't include 0. Looking at this we can conclude that there was more restaurants that passed that were excluded from the analasys. We marked this as a limitation and don't think that this changes our finding because of the small difference in percentage and the previous results we got from different checks.
 
 ## Primary datasets:
 
